@@ -1,6 +1,6 @@
 package application;
 
-import entities.Product;
+import entities.Conta;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -10,33 +10,17 @@ public class Program {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter product data: ");
-        System.out.println("Name: ");
-        String name = sc.nextLine();
-        System.out.println("Price: ");
-        double price = sc.nextDouble();
-        System.out.println("Quantity in stock: ");
-        int quantity = sc.nextInt();
+        Conta conta = new Conta();
+        System.out.println("Digite o número da conta Bancária: ");
+        conta.numeroConta = sc.nextDouble();
+        System.out.println("Digit o nome do Titular: ");
+        conta.nome = sc.next();
+        System.out.println("Digite o valor do depósito inicial (caso nao tenha digitar 0): ");
+        conta.deposito = sc.nextDouble();
 
-        Product product = new Product(name, price, quantity);
+        System.out.println("realizar ");
 
-        System.out.println();
-        System.out.println("Procut data: " + product);
 
-        System.out.println("Enter the number of products to be added in stock: ");
-        quantity = sc.nextInt();
-        product.addProducts(quantity);
-
-        System.out.println();
-        System.out.println("Update data: " + product);
-
-        System.out.println();
-        System.out.println("Enter the number of products to be removed from stock: ");
-        quantity = sc.nextInt();
-        product.removeProducts(quantity);
-
-        System.out.println();
-        System.out.println("Update data: " + product);
 
         sc.close();
     }
