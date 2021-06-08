@@ -2,50 +2,52 @@ package entities;
 
 public class Conta {
 
-    public double numeroConta;
-    public String nome;
-    public double deposito;
-    public double saque;
-   // public double saldo;
+    private int numeroConta;
+    private String nome;
+    private double saldo;
 
-    public double Deposito(double saldo, double deposito){
-        saldo = saldo + deposito;
-        return saldo;
-    }
-
-    public double saque(double saldo, double saque){
-        saldo = saque - 5;
-        return saldo;
-    }
-
-    public double getNumeroConta() {
-        return numeroConta;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
+    public Conta(int numeroConta, String nome){
+        this.numeroConta = numeroConta;
         this.nome = nome;
     }
 
-    public double getDeposito() {
-        return deposito;
+    public Conta(int numeroConta, String nome, double depositoInicial){
+        this.numeroConta = numeroConta;
+        this.nome = nome;
+        deposito(depositoInicial);
     }
 
-    public void setDeposito(double deposito) {
-        this.deposito = deposito;
+    public int getNumeroConta(){
+        return numeroConta;
     }
 
-    public double getSaque() {
-        return saque;
+    public String getNome(){
+        return nome;
     }
 
-    public void setSaque(double saque) {
-        this.saque = saque;
+    public void setNome(String nome){
+        this.nome = nome;
     }
 
+    public double getSaldo(double saldo){
+        return saldo;
+    }
 
+    public void deposito(double resultado) {
+        saldo += resultado;
+    }
+
+    public void saque(double resultado){
+        saldo -= resultado + 5.0;
+    }
+
+    public String toString(){
+        return "Conta "
+                + numeroConta
+                +", Nome: "
+                + nome
+                + ", Saldo: R$ "
+                + String.format("%.2f", saldo);
+    }
 
 }
